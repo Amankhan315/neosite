@@ -1,0 +1,4006 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>neo</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+            /* border: 1px solid red; */
+        }
+
+        .mainbox {
+            height: auto;
+            width: 100%;
+            padding: 1px;
+            /* border: 1px solid; */
+        }
+
+        .mainbar {
+            height: 12vh;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border-bottom: 1px solid rgb(197, 195, 195);
+        }
+
+        .logobar {
+            height: 6vh;
+            width: 200px;
+            margin-top: 0;
+            /* border: 1px solid; */
+        }
+
+        .img1 {
+            height: auto;
+            width: 100%;
+        }
+
+        .content {
+            height: 7vh;
+            width: 50%;
+
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            /* border: 1px solid; */
+
+        }
+
+        .list {
+            height: 3vh;
+            position: relative;
+            display: block;
+            font-family: proxima-nova, sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            cursor: pointer;
+            /* border: 1px solid; */
+
+        }
+
+        .minibox {
+            height: 4vh;
+            width: 100%;
+            left: 0;
+            top: 18px;
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .img2 {
+            height: 100%;
+            width: 0;
+        }
+
+        .list:hover .img2 {
+            width: 100%;
+            transition: all linear 0.3s;
+        }
+
+        .box1 {
+            height: 60vh;
+            width: 700px;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: -120px;
+            top: 80px;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s linear;
+            background-color: white;
+            box-shadow: 1px 1px 1px 1px rgb(172, 172, 172);
+            /* border: 1px solid rgb(172, 172, 172); */
+        }
+
+        .list:hover .box1 {
+            opacity: 1;
+            margin-top: -10px;
+            visibility: visible;
+        }
+
+        .smallbox2 {
+            height: 55vh;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            /* border-left: 1px solid rgb(182, 181, 181); */
+        }
+
+        .longbox {
+            height: 12vh;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            /* border: 1px solid; */
+
+        }
+
+        .minibox3 {
+            height: 7vh;
+            width: 12%;
+            /* border: 1px solid; */
+        }
+
+        .img3 {
+            height: 100%;
+            width: 100%;
+            transition: all 0.2s linear;
+        }
+
+        .longbox:hover .img3 {
+            margin-top: -5px;
+        }
+
+        .minibox4 {
+            height: 12vh;
+            width: 78%;
+            /* border: 1px solid; */
+        }
+
+        .bar {
+            height: 4vh;
+            width: 80%;
+            /* border: 1px solid; */
+        }
+
+        .text2 {
+            font-family: proxima-nova, sans-serif;
+            font-size: 14px;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        .longbox:hover .text2 {
+            color: rgb(0, 200, 175);
+
+        }
+
+        .para {
+            font-family: proxima-nova, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 25px;
+            margin-left: 10px;
+        }
+
+
+        .smallbox {
+            height: 7vh;
+            width: 18%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            /* border: 1px solid; */
+        }
+
+        .minibox2 {
+            height: 6vh;
+            width: 38%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+
+
+        .box2 {
+            height: 70vh;
+            width: 700px;
+            position: absolute;
+            left: -780%;
+            display: flex;
+            top: 80px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s linear;
+            box-shadow: 1px 1px 1px 1px rgb(172, 172, 172);
+            /* border: 1px solid rgb(172, 172, 172); */
+        }
+
+        .list:hover .box2 {
+            opacity: 1;
+            margin-top: -10px;
+            visibility: visible;
+        }
+
+        .smallbox3 {
+            height: 60vh;
+            width: 50%;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            border-right: 1px solid rgb(179, 177, 177);
+        }
+
+        .smallbox4 {
+            height: 48vh;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            /* gap: 20px; */
+            /* border-left: 2px solid green; */
+
+        }
+
+        .text2:hover {
+            color: rgb(0, 200, 175);
+
+        }
+
+
+        .barbox1 {
+            height: 12vh;
+            width: 100%;
+            /* border: 1px solid; */
+        }
+
+        .minibox5 {
+            height: 5vh;
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+            /* border: 1px solid; */
+
+        }
+
+        .box3 {
+            height: 15vh;
+            width: 250px;
+            position: absolute;
+            left: -100px;
+            top: 80px;
+            opacity: 0;
+            visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            box-shadow: 1px 1px 1px 1px rgb(172, 172, 172);
+            transition: all 0.3s linear;
+            /* border: 1px solid; */
+        }
+
+        .list:hover .box3 {
+            opacity: 1;
+            margin-top: -10px;
+            visibility: visible;
+        }
+
+        .minibox6 {
+            height: 5vh;
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .button1 {
+            height: 7vh;
+            width: 55%;
+            border-radius: 10px;
+            background-color: rgb(0, 200, 175);
+            color: white;
+            font-family: proxima-nova, sans-serif;
+            font-size: 12px;
+            font-weight: bolder;
+            border: none;
+            transition: all 1s;
+        }
+
+        .button1:hover {
+            background-color: black;
+            color: rgb(0, 200, 175);
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:1025px) {
+            .mainbar {
+                display: none;
+            }
+        }
+
+        .mainbar2 {
+            height: 12vh;
+            width: 100%;
+
+            justify-content: space-between;
+            display: none;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            /* border: 1px solid; */
+        }
+
+        .menubox {
+            height: 8vh;
+            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(0, 200, 175);
+            border-radius: 5px;
+            /* border: 1px solid; */
+        }
+
+        .menu {
+            font-size: 40px;
+            color: white;
+        }
+
+        @media screen and (max-width:1025px) {
+            .mainbar2 {
+                display: flex;
+            }
+
+        }
+
+        .parent1 {
+            height: auto;
+            width: 100%;
+            padding-top: 80px;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .bigbox {
+            height: auto;
+            width: 500px;
+            display: flex;
+            padding-left: 50px;
+            flex-direction: column;
+            justify-content: space-evenly;
+            /* border: 1px solid; */
+
+        }
+
+        .box4 {
+            height: auto;
+            width: 400px;
+            /* border: 1px solid; */
+        }
+
+        .para2 {
+            font-family: proxima-nova, sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 36px;
+            color: black;
+        }
+
+        .text3 {
+            font-family: proxima-nova, sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 45px;
+            color: black;
+        }
+
+        .button2 {
+            height: 9vh;
+            width: 40%;
+            background-color: rgb(0, 200, 175);
+            color: white;
+            font-family: proxima-nova, sans-serif;
+            font-size: 17px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            transition: all 1s;
+
+        }
+
+        .button2:hover {
+            background-color: black;
+            color: rgb(0, 200, 175);
+            cursor: pointer;
+        }
+
+        .bigbox2 {
+            height: 400px;
+            width: 900px;
+            left: 0;
+            top: 0;
+            position: relative;
+            /* border: 1px solid; */
+            padding: 1px;
+        }
+
+        .smallbox5 {
+            height: 25vh;
+            width: 20%;
+            left: 0;
+            top: 0;
+            position: absolute;
+            z-index: -1;
+            /* border: 1px solid; */
+        }
+
+        .img4 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .smallbox6 {
+            height: 60vh;
+            width: 900px;
+            display: flex;
+            justify-content: space-between;
+            margin-left: 30px;
+
+            /* position: absolute; */
+            /* background-color: aqua; */
+            /* border: 1px solid; */
+
+        }
+
+        .box7 {
+            height: 7vh;
+            width: 55%;
+            left: 60%;
+            top: 40px;
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .downupbox {
+            height: 100%;
+            width: 100%;
+            animation-name: downupbox;
+            animation-duration: 2s;
+
+
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+
+        }
+
+        @keyframes downupbox {
+            0% {
+
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(10px);
+
+            }
+
+        }
+
+        .box8 {
+            height: 7vh;
+            width: 55%;
+            left: 5%;
+            top: 280px;
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .box9 {
+            height: 7vh;
+            width: 18%;
+            left: 63%;
+            top: 280px;
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .img12 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .smallbox7 {
+            height: 3vh;
+            width: 40%;
+            left: 85%;
+            top: 2px;
+            transform: rotate(-30deg);
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .hornline {
+            height: 100%;
+            width: 100%;
+            animation-name: hornline;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes hornline {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+
+        }
+
+        .circlebox {
+            height: 55vh;
+            width: 45%;
+            display: flex;
+            position: relative;
+            /* border: 1px solid; */
+
+        }
+
+        .img5 {
+            height: 100%;
+            width: 100%;
+            margin-left: 20px;
+        }
+
+        .minibox7 {
+            height: 15vh;
+            width: 30%;
+            bottom: 0;
+            z-index: -2;
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .img6 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .boxbar1 {
+            height: 19vh;
+            width: 80%;
+            z-index: -2;
+            left: 52%;
+            top: 60%;
+            overflow: hidden;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            /* border: 1px solid red; */
+
+
+        }
+
+        .greenbox {
+            height: 19vh;
+            width: 200%;
+            animation-name: slide;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+
+
+            transform: translateX(0);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid green; */
+        }
+
+        @keyframes slide {
+            0% {
+                /* margin-right: 0%; */
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+                /* margin-right: 100%; */
+            }
+
+        }
+
+        .slide {
+            height: 18vh;
+            width: 16.6%;
+            position: relative;
+            margin-left: 15px;
+            /* border: 2px solid blue; */
+        }
+
+        .img7 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .circlebox2 {
+            height: 15px;
+            width: 15px;
+            left: 75%;
+            top: 8px;
+            position: absolute;
+            border-radius: 100px;
+            background-color: white;
+            animation-name: img8;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            transform: scale(0);
+            border: none;
+
+
+        }
+
+        @keyframes img8 {
+            0% {
+
+                transform: scale(0);
+            }
+
+            20% {
+
+                transform: scale(0);
+            }
+
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        .radial-dot {
+            height: 12vh;
+            width: 30%;
+            clip-path: polygon(0 0, 0 100%, 75% 100%);
+            position: absolute;
+            left: 68%;
+            top: 60px;
+            /* border: 1px solid; */
+        }
+
+        .smallcircle {
+            height: 8px;
+            width: 8px;
+            left: 0;
+            top: 15px;
+            animation-name: smallcircle;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            position: absolute;
+            border-radius: 50px;
+            /* border: 1px solid; */
+
+        }
+
+        @keyframes smallcircle {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 100%;
+            }
+
+        }
+
+        .smallcircle2 {
+            height: 8px;
+            width: 8px;
+            left: 0;
+            top: 28px;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50px;
+            animation-name: smallcircle2;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-delay: 3s;
+            background-color: rgb(0, 200, 175);
+            /* border: 1px solid; */
+
+        }
+
+        @keyframes smallcircle2 {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 100%;
+            }
+
+        }
+
+        .smallcircle3 {
+            height: 8px;
+            width: 8px;
+            left: 12px;
+            top: 28px;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50px;
+            animation-name: smallcircle3;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-delay: 5s;
+            background-color: rgb(255, 151, 146);
+            /* border: 1px solid; */
+
+        }
+
+        @keyframes smallcircle3 {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 100%;
+            }
+
+        }
+
+        .smallcircle4 {
+            height: 8px;
+            width: 8px;
+
+            top: 42px;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50px;
+            animation-name: smallcircle4;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-delay: 6s;
+            /* border: 1px solid; */
+
+        }
+
+        @keyframes smallcircle4 {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 100%;
+            }
+
+        }
+
+        .smallcircle5 {
+            height: 8px;
+            width: 8px;
+            left: 12px;
+            top: 42px;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50px;
+            animation-name: smallcircle5;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-delay: 7s;
+            background-color: rgb(0, 200, 175);
+            /* border: 1px solid; */
+
+        }
+
+        @keyframes smallcircle5 {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 100%;
+            }
+
+        }
+
+        .smallcircle6 {
+            height: 8px;
+            width: 8px;
+            left: 25px;
+            top: 42px;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50px;
+            animation-name: smallcircle6;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-delay: 8s;
+            /* border: 1px solid; */
+
+        }
+
+        @keyframes smallcircle6 {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 100%;
+            }
+
+        }
+
+
+        .smallcircle7 {
+            height: 8px;
+            width: 8px;
+            /* left: 25px; */
+            top: 56px;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50px;
+            animation-name: smallcircle7;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-delay: 10s;
+            background-color: rgb(255, 151, 146);
+            /* border: 1px solid; */
+
+        }
+
+        @keyframes smallcircle7 {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 100%;
+            }
+
+        }
+
+        .smallcircle8 {
+            height: 8px;
+            width: 8px;
+            left: 10px;
+            top: 56px;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50px;
+            animation-name: smallcircle8;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-delay: 15s;
+            /* border: 1px solid; */
+
+        }
+
+        @keyframes smallcircle8 {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 100%;
+            }
+
+        }
+
+        .smallcircle9 {
+            height: 8px;
+            width: 8px;
+            left: 20px;
+            top: 56px;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50px;
+            /* border: 1px solid; */
+
+        }
+
+        .smallcircle10 {
+            height: 8px;
+            width: 8px;
+            left: 30px;
+            top: 56px;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50px;
+            animation-name: smallcircle10;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-delay: 20s;
+            background-color: rgb(0, 200, 175);
+            /* border: 1px solid; */
+
+        }
+
+        @keyframes smallcircle10 {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 100%;
+            }
+
+        }
+
+        .box5 {
+            height: 5vh;
+            width: 69%;
+            left: 15%;
+            top: 130px;
+            overflow: hidden;
+            border-radius: 20px;
+            position: absolute;
+            border: 1px solid;
+
+        }
+
+        .search {
+            height: 5vh;
+            width: 60%;
+            border-radius: 20px;
+            position: absolute;
+            z-index: 2;
+            /* border: 1px solid; */
+        }
+
+        .img10 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .box6 {
+            height: 5vh;
+            width: 90%;
+            position: absolute;
+            left: 23px;
+            top: 3px;
+            border-radius: 20px;
+
+            /* border: 2px solid red; */
+
+        }
+
+        .slide2 {
+            height: 4vh;
+            width: 100%;
+
+            border-radius: 20px;
+            animation-name: slide2;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            /* border: 2px solid green; */
+            transform: translateX(0);
+
+        }
+
+        @keyframes slide2 {
+            0% {
+                transform: translateX(0);
+
+            }
+
+            100% {
+                transform: translateX(50%);
+
+            }
+
+        }
+
+        .bsline {
+            height: 0.5px;
+            width: 100%;
+            top: 16px;
+            position: absolute;
+            background-color: black;
+            border: 1px solid;
+        }
+
+        .img11 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .radiusbox {
+            height: 17vh;
+            width: 67%;
+            display: flex;
+            justify-content: center;
+            left: 20%;
+            top: 200px;
+            border-bottom-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+            position: absolute;
+            /* border: 1px solid; */
+
+
+        }
+
+        .bitesbox {
+            height: 6vh;
+            width: 86%;
+            margin-top: 1px;
+            overflow: hidden;
+            /* border: 2px solid red; */
+        }
+
+        .bites {
+            height: 9vh;
+            width: 100%;
+            overflow: hidden;
+            animation-name: bites;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+
+            /* border: 2px solid green; */
+        }
+
+        @keyframes bites {
+            0% {
+                margin-left: 0;
+            }
+
+            100% {
+                margin-left: -100%;
+            }
+
+        }
+
+        .img9 {
+            height: 100%;
+            width: 150%;
+        }
+
+        .img8 {
+            height: 100%;
+            width: 100%;
+        }
+
+        @media screen and (max-width:1071px) {
+            .bigbox {
+                width: 450px;
+            }
+
+            .box4 {
+                width: 400px;
+            }
+
+            .box5 {
+                top: 130px;
+            }
+
+            .box8 {
+                top: 250px;
+            }
+
+            .box9 {
+                left: 62%;
+                top: 220px;
+            }
+
+            .radiusbox {
+                top: 170px;
+            }
+        }
+
+        @media screen and (max-width:887px) {
+            .bigbox {
+                width: 450px;
+                padding-left: 40px;
+            }
+
+            .box4 {
+                width: 380px;
+            }
+
+            .text3 {
+                font-size: 35px;
+            }
+
+            .para2 {
+                font-size: 18px;
+            }
+        }
+
+        @media screen and (max-width:829px) {
+            .bigbox {
+                width: 450px;
+                padding-left: 40px;
+            }
+
+            .bigbox2 {
+                height: 300px;
+                width: 600px;
+            }
+
+            .box4 {
+                height: auto;
+                width: 380px;
+            }
+
+            .text3 {
+                font-size: 35px;
+            }
+
+            .para2 {
+                font-size: 16px;
+            }
+        }
+
+        @media screen and (max-width:761px) {
+            .parent1 {
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-items: start;
+
+            }
+
+            .bigbox {
+                width: 100%;
+                padding-left: 5px;
+
+            }
+
+            .box4 {
+                width: 100%;
+            }
+
+            .button2 {
+                width: 50%;
+            }
+
+            .bigbox2 {
+                width: 800px;
+                left: -10%;
+            }
+        }
+
+        @media screen and (max-width:694px) {
+
+            .bigbox2 {
+                /* width:750px; */
+                transform: scale(0.8)
+            }
+
+            .smallbox6 {
+                width: 750px;
+            }
+        }
+
+        @media screen and (max-width:646px) {
+
+            .bigbox2 {
+                /* width:750px; */
+                transform: scale(0.7);
+                left: -95px;
+
+
+
+            }
+
+            .smallbox6 {
+                width: 750px;
+            }
+        }
+
+        @media screen and (max-width:598px) {
+
+            .bigbox2 {
+                /* width:750px; */
+                transform: scale(0.6);
+                left: -140px;
+
+
+
+            }
+
+            .smallbox6 {
+                width: 750px;
+            }
+        }
+
+        @media screen and (max-width:480px) {
+
+            .bigbox2 {
+                /* width:750px; */
+                transform: scale(0.5);
+                left: -180px;
+                top: -50px;
+
+
+
+            }
+
+            .smallbox6 {
+                width: 750px;
+            }
+        }
+
+        @media screen and (max-width:412px) {
+
+            .bigbox2 {
+                /* width:750px; */
+                transform: scale(0.5);
+                left: -230px;
+                top: -50px;
+
+
+
+            }
+
+            .smallbox6 {
+                width: 750px;
+            }
+        }
+
+        .parent2 {
+            height: auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .childbox {
+            height: 10vh;
+            width: 180%;
+            padding-top: 10px;
+            overflow: hidden;
+            /* border: 1px solid red; */
+        }
+
+        .slidebox1 {
+            height: 10vh;
+            width: 250%;
+            /* border: 3px solid lime; */
+            display: inline-block;
+
+
+
+        }
+
+        .slide5 {
+            height: 7vh;
+            width: 150px;
+            margin-left: 3%;
+            /* border: 1px solid blue; */
+            display: inline-block;
+
+        }
+
+        .img13 {
+            height: 40px;
+            width: 100px;
+        }
+
+        @media screen and (max-width:1063px) {
+            .childbox {
+                width: 280%;
+            }
+
+            .slidebox1 {
+                width: 380%;
+            }
+        }
+
+        @media screen and (max-width:755px) {
+            .childbox {
+                width: 300%;
+            }
+
+            .slidebox1 {
+                width: 450%;
+            }
+        }
+
+        @media screen and (max-width:651px) {
+            .slidebox1 {
+                height: 10vh;
+                width: 500%;
+                /* border: 3px solid lime; */
+                animation-name: slide5;
+
+                animation-duration: 6s;
+                transform: translateX(0);
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+                display: inline-block;
+
+
+
+
+
+            }
+
+            @keyframes slide5 {
+                0% {
+                    /* margin-right: 0%; */
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-50%);
+                    /* margin-right: 100%; */
+                }
+
+            }
+
+
+
+
+
+
+
+        }
+
+        @media screen and (max-width:509px) {
+            .slide5 {
+                width: 150px;
+                margin-top: 5px;
+                display: inline-block;
+                /* border: 2px solid red; */
+            }
+        }
+
+        .parent3 {
+            height: 80vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            /* border: 1px solid; */
+        }
+
+        .childbox2 {
+            height: 10vh;
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .text4 {
+            font-family: proxima-nova, sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            color: black;
+        }
+
+        .childbox3 {
+            height: 15vh;
+            width: 60%;
+            /* border: 1px solid; */
+
+        }
+
+        .para3 {
+            text-align: center;
+            font-family: proxima-nova, sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 40px;
+            color: black;
+
+        }
+
+        .button3 {
+            height: 7vh;
+            width: 10%;
+            background-color: rgb(0, 167, 146);
+            color: white;
+            font-family: proxima-nova, sans-serif;
+            font-size: 13px;
+            border-radius: 10px;
+            border: none;
+            transition: all 1s;
+        }
+
+        .button3:hover {
+            background-color: black;
+            color: rgb(0, 167, 146);
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:1071px) {
+            .childbox2 {
+                height: auto;
+                width: auto;
+            }
+
+            .childbox3 {
+                height: auto;
+                width: auto;
+            }
+
+            .button3 {
+                width: 20%;
+            }
+
+
+        }
+
+        @media screen and (max-width:567px) {
+            .button3 {
+                width: 40%;
+            }
+        }
+
+        .parent4 {
+            height: auto;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 30px;
+            /* border: 1px solid; */
+        }
+
+        .childbox4 {
+            height: auto;
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            gap: 20px;
+            /* border: 1px solid; */
+        }
+
+        .smallbox8 {
+            height: auto;
+            width: 30%;
+            display: flex;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .text5 {
+            font-family: proxima-nova, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: black;
+        }
+
+        .smallbox9 {
+            height: auto;
+            width: 80%;
+            /* border: 1px solid; */
+        }
+
+        .text6 {
+            font-family: proxima-nova, sans-serif;
+            font-size: 35px;
+            font-weight: 600;
+            color: black;
+        }
+
+        .smallbox10 {
+            height: auto;
+            width: 100%;
+            /* border: 1px solid; */
+        }
+
+        .para4 {
+            font-family: proxima-nova, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28.8px;
+        }
+
+        .button4 {
+            height: 7vh;
+            width: 30%;
+            background-color: rgb(0, 167, 146);
+            color: white;
+            font-family: proxima-nova, sans-serif;
+            font-size: 13px;
+            border-radius: 10px;
+            border: none;
+            transition: all 1s;
+        }
+
+        .button4:hover {
+            background-color: black;
+            color: rgb(0, 167, 146);
+            cursor: pointer;
+        }
+
+        .childbox5 {
+            height: 65vh;
+            width: 58%;
+            position: relative;
+            /* border: 1px solid; */
+        }
+
+        .img14 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .picbox {
+            height: 30vh;
+            width: auto;
+            left: 20%;
+            top: 160px;
+            position: absolute;
+            /* border: 1px solid; */
+
+        }
+
+        .picboxs {
+            height: 30vh;
+            width: auto;
+            left: 13.5%;
+            top: 110px;
+            position: absolute;
+            /* border: 1px solid; */
+
+        }
+
+        .picbox2 {
+            height: 30vh;
+            width: auto;
+            left: 60%;
+            top: 120px;
+            position: absolute;
+            /* border: 1px solid; */
+
+        }
+
+        .img15 {
+            height: 100%;
+            width: 100%;
+        }
+
+        @media screen and (max-width:1071px) {
+            .parent4 {
+
+                flex-wrap: wrap;
+            }
+
+            .childbox4 {
+                width: 40%;
+            }
+        }
+
+        @media screen and (max-width:766px) {
+
+            .childbox4 {
+                width: 100%;
+            }
+
+            .childbox5 {
+                height: 40vh;
+                width: 100%;
+            }
+
+            .picbox {
+                height: 20vh;
+                left: 20%;
+                top: 80px;
+            }
+
+            .picboxs {
+                height: 15vh;
+                left: 13.5%;
+                top: 80px;
+            }
+
+            .picbox2 {
+                height: 20vh;
+                left: 60%;
+                top: 70px;
+            }
+
+        }
+
+        .parent5 {
+            height: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .parent6 {
+            height: auto;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            /* border: 1px solid; */
+
+        }
+
+        .parent7 {
+            height: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            /* border: 1px solid; */
+
+        }
+
+        .parent8 {
+            height: auto;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            /* border: 1px solid; */
+
+
+        }
+
+        .parent9 {
+            height: 140vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            /* border: 2px solid red; */
+        }
+
+        .button5 {
+            height: 9vh;
+            width: 18%;
+            background-color: rgb(0, 167, 146);
+            color: white;
+            font-family: proxima-nova, sans-serif;
+            font-size: 13px;
+            border-radius: 10px;
+            border: none;
+            margin-top: 20px;
+            transition: all 1s;
+        }
+
+        .button5:hover {
+            background-color: black;
+            color: rgb(0, 167, 146);
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:949px) {
+            .button5 {
+                width: 50%;
+            }
+        }
+
+        .childbox6 {
+            height: 80vh;
+            width: 100%;
+            position: relative;
+            /* border: 1px solid; */
+
+        }
+
+        .img16 {
+            height: 100%;
+            width: 100%;
+
+
+        }
+
+        .smallbox11 {
+            height: 20vh;
+            width: 140px;
+            left: 0;
+            top: 0;
+
+            /* background-color:red; */
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .img17 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .smallbox12 {
+            height: 60vh;
+            width: 95%;
+            left: 3%;
+            top: 50px;
+            overflow: hidden;
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .boxes {
+            height: max-content;
+            width: 250px;
+            left: 5%;
+            top: 50px;
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .boxes2 {
+            height: max-content;
+            width: 200px;
+            left: 22%;
+            top: 250px;
+            z-index: -2;
+            position: absolute;
+            transform: rotate(-15deg);
+            /* background-color: red; */
+            /* border: 1px solid; */
+        }
+
+        .img18 {
+            height: 100%;
+            width: 100%;
+
+        }
+
+
+        .boxes3 {
+            height: max-content;
+            width: 230px;
+            left: 22%;
+            top: -5px;
+            z-index: -2;
+            position: absolute;
+            transform: rotate(-10deg);
+            /* background-color: green; */
+            /* border: 1px solid; */
+
+        }
+
+        .picbox3 {
+            height: max-content;
+            width: 65%;
+            left: 15%;
+            top: 20px;
+            z-index: -1;
+            transform: rotate(-2deg);
+            position: absolute;
+            /* border: 2px solid blue; */
+        }
+
+        .img19 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .boxes4 {
+            height: max-content;
+            width: 200px;
+            left: 42%;
+            top: 60px;
+            position: absolute;
+            /* background-color: yellow; */
+            /* border: 1px solid; */
+
+
+        }
+
+        .boxes5 {
+            height: 50vh;
+            width: 200px;
+            left: 60%;
+            top: 10px;
+            position: absolute;
+            transform: rotate(-15deg);
+            /* background-color: yellow; */
+            /* border: 1px solid; */
+
+
+        }
+
+        .picbox4 {
+            height: max-content;
+            width: 40%;
+            left: 0;
+            top: 0;
+            /* transform: rotate(-45deg); */
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .img20 {
+            /* height: 100%; */
+            width: 100%;
+            transform: rotate(10deg);
+        }
+
+        .picbox5 {
+            height: max-content;
+            width: 65%;
+            left: 0;
+            top: 80px;
+            transform: rotate(18deg);
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .picbox6 {
+            height: max-content;
+            width: 65%;
+            left: 50%;
+            top: 140px;
+            transform: rotate(18deg);
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .picbox7 {
+            height: max-content;
+            width: 50%;
+            left: 65%;
+            top: 250px;
+            position: absolute;
+            /* border: 1px solid; */
+
+
+        }
+
+        .picbox8 {
+            height: max-content;
+            width: 200px;
+            left: 130%;
+            top: 80px;
+
+            position: absolute;
+            /* border: 1px solid red; */
+        }
+
+        .picbox9 {
+            height: max-content;
+            width: 180px;
+            left: 85%;
+            top: 5px;
+            z-index: -2;
+            transform: rotate(0deg);
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        @media screen and (max-width:1071px) {
+            .boxes {
+                width: 180px;
+            }
+
+            .boxes2 {
+                width: 180px;
+                top: 220px;
+            }
+
+            .boxes3 {
+                width: 180px;
+            }
+
+            .boxes4 {
+                width: 160px;
+            }
+
+            .boxes5 {
+                width: 180px;
+            }
+
+            .picbox4 {
+                width: 30%;
+            }
+
+            .picbox5 {
+                width: 50%;
+
+            }
+
+            .picbox6 {
+                width: 50%;
+                left: 40%;
+                top: 120px;
+            }
+
+            .picbox7 {
+                width: 40%;
+                top: 230px;
+            }
+
+            .picbox8 {
+                width: 150px;
+                left: 125%;
+            }
+
+            .picbox9 {
+                width: 150px;
+            }
+        }
+
+        @media screen and (max-width:991px) {
+            .boxes {
+                width: 150px;
+            }
+
+            .boxes2 {
+                width: 150px;
+                top: 220px;
+            }
+
+            .boxes3 {
+                width: 150px;
+            }
+
+            .boxes4 {
+                width: 150px;
+            }
+
+            .boxes5 {
+                width: 150px;
+            }
+
+            .picbox4 {
+                width: 40%;
+            }
+
+            .picbox5 {
+                width: 40%;
+
+            }
+
+            .picbox6 {
+                width: 40%;
+                left: 40%;
+                top: 120px;
+            }
+
+            .picbox7 {
+                width: 40%;
+                top: 230px;
+            }
+
+            .picbox8 {
+                width: 125px;
+                left: 125%;
+            }
+
+            .picbox9 {
+                width: 125px;
+            }
+        }
+
+        @media screen and (max-width:845px) {
+            .boxes {
+                width: 125px;
+            }
+
+            .boxes2 {
+                width: 125px;
+                top: 220px;
+            }
+
+            .boxes3 {
+                width: 125px;
+            }
+
+            .boxes4 {
+                width: 125px;
+            }
+
+            .boxes5 {
+                width: 125px;
+            }
+
+            .picbox4 {
+                width: 35%;
+            }
+
+            .picbox5 {
+                width: 35%;
+
+            }
+
+            .picbox6 {
+                width: 35%;
+                left: 40%;
+                top: 120px;
+            }
+
+            .picbox7 {
+                width: 35%;
+                top: 230px;
+            }
+
+            .picbox8 {
+                width: 120px;
+                left: 125%;
+            }
+
+            .picbox9 {
+                width: 120px;
+            }
+        }
+
+        @media screen and (max-width:412px) {
+            .boxes5 {
+                height: 40vh;
+                width: 180px;
+                left: 80%;
+            }
+        }
+
+        .parent10 {
+            height: auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 80px;
+            /* border: 1px solid; */
+        }
+
+        .childbox7 {
+            height: auto;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .box13 {
+            height: auto;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            /* border: 1px solid; */
+        }
+
+        .smallbxes6 {
+            height: auto;
+            width: 80%;
+            /* border: 1px solid; */
+        }
+
+        .text9 {
+            font-family: proxima-nova, sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .smallbxes7 {
+            height: auto;
+            width: 100%;
+            /* border: 1px solid; */
+        }
+
+        .para6 {
+            font-family: proxima-nova, sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 36px;
+        }
+
+        .button7 {
+            height: 7vh;
+            width: 18%;
+            background-color: rgb(0, 200, 175);
+            border: none;
+            font-family: proxima-nova, sans-serif;
+            font-size: 13px;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .button7:hover {
+            background-color: black;
+            color: rgb(0, 200, 175);
+            cursor: pointer;
+        }
+
+        .smallboxes4 {
+            height: 100vh;
+            width: 75%;
+            /* margin: auto; */
+            margin-top: 50px;
+            overflow: hidden;
+            /* border: 3px solid red; */
+
+
+        }
+
+        .slidebox7 {
+            height: 100%;
+            width: 200%;
+            /* border: 3px solid lime; */
+            animation-name: slide6;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            gap: 10px;
+            display: flex;
+            /* justify-content: center;  */
+            /* align-items: center; */
+
+        }
+
+        @keyframes slide6 {
+            0% {
+                margin-left: 0;
+            }
+
+            16.5% {
+                margin-left: 0;
+            }
+
+            33% {
+                margin-left: -33.3%;
+            }
+
+            49.5% {
+                margin-left: -33.3%;
+            }
+
+            66% {
+                margin-left: -66.6%;
+            }
+
+            82.5% {
+                margin-left: -66.6%;
+            }
+
+            100% {
+                margin-left: -100%;
+            }
+
+
+        }
+
+
+
+        .slide6 {
+            height: 100%;
+            width: 16.6%;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            display: flex;
+            margin-left: 20px;
+            border: 1px solid rgb(138, 138, 138);
+            border-radius: 10px;
+            box-shadow: 5px 5px 8px 2px rgb(221, 221, 221);
+          
+
+        }
+
+        .box10 {
+            height: 18vh;
+            width: 60%;
+            /* border: 1px solid; */
+        }
+
+        .img21 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .box11 {
+            height: 15vh;
+            width: 80%;
+            /* border: 1px solid; */
+        }
+
+        .para5 {
+            text-align: center;
+            font-family: proxima-nova, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .box12 {
+            height: 30vh;
+            width: 90%;
+            display: flex;
+            /* border-top: 1px solid gray ; */
+        }
+
+        .smallboxes5 {
+            height: 30vh;
+            width: 50%;
+            /* border-right: 1px solid rgb(163, 162, 162); */
+        }
+
+        .minibox8 {
+            height: 22vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* border-top: 1px solid rgb(187, 187, 187); */
+        }
+
+        .iconbox {
+            height: 8vh;
+            width: 50%;
+            /* border: 1px solid; */
+        }
+
+        .img22 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .iconbox2 {
+            height: 5vh;
+            width: 90%;
+            /* border: 1px solid; */
+        }
+
+        .text7 {
+            text-align: center;
+            font-family: proxima-nova, sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .minibox9 {
+            height: 8vh;
+            width: 100%;
+            /* border: 1px solid; */
+        }
+
+        .text8 {
+            text-align: center;
+            font-family: proxima-nova, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .button6 {
+            height: 7vh;
+            width: 45%;
+            background-color: rgb(0, 200, 175);
+            color: white;
+            border-radius: 10px;
+            border: none;
+            font-family: proxima-nova, sans-serif;
+            font-weight: bolder;
+        }
+
+        .button6:hover {
+            background-color: black;
+            color: rgb(0, 200, 175);
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:967px) {
+            .button7 {
+                width: max-content;
+            }
+        }
+
+        @media screen and (max-width:483px) {
+            .slidebox7 {
+                width: 600%;
+                animation-name: slide6;
+                animation-duration: 10s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+
+
+            }
+
+
+            @keyframes slide6 {
+                0% {
+                    margin-left: 0;
+                }
+
+                8% {
+                    margin-left: 0%;
+                }
+
+                16.5% {
+                    margin-left: -100%;
+                }
+
+                24.5% {
+                    margin-left: -100%;
+                }
+
+                33% {
+                    margin-left: -100%;
+                }
+
+                41% {
+                    margin-left: -200%;
+                }
+
+                49.5% {
+                    margin-left: -200%;
+                }
+
+                57.5% {
+                    margin-left: -300%;
+                }
+
+                66% {
+                    margin-left: -300%;
+                }
+
+                74% {
+                    margin-left: -400%;
+                }
+
+                82.5% {
+                    margin-left: -400%;
+                }
+
+                90.5% {
+                    margin-left: -500%;
+                }
+
+                100% {
+                    margin-left: -500%;
+                }
+
+
+
+
+            }
+
+        }
+
+        .parent11 {
+            height: auto;
+            width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid red; */
+        }
+
+        .childbox8 {
+            height: auto;
+            width: 90%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            background-color: rgb(231, 254, 248);
+            /* border: 1px solid; */
+        }
+
+        .bigbox3 {
+            height: 50vh;
+            width: 30%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .circlebox3 {
+            height: 48vh;
+            width: 80%;
+            left: 0;
+            top: 0;
+            display: flex;
+            position: relative;
+            /* border: 1px solid; */
+
+        }
+
+        .minibox10 {
+            height: 7vh;
+            width: 60%;
+            left: 60%;
+            top: 0;
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .minibox11 {
+            height: 7vh;
+            width: 60%;
+            left: 100%;
+            top: 150px;
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .minibox12 {
+            height: 7vh;
+            width: 60%;
+            left: 5%;
+            top: 250px;
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .img23 {
+            height: 100%;
+            width: 100%;
+            height: 100%;
+            width: 100%;
+            animation-name: img23;
+            animation-duration: 2s;
+
+
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+
+        @keyframes img23 {
+            0% {
+
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(10px);
+
+            }
+
+        }
+
+        .bigbox4 {
+            height: auto;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .textbox {
+            height: auto;
+            width: 80%;
+            display: flex;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .textbox2 {
+            height: auto;
+            width: 100%;
+            /* border: 1px solid; */
+        }
+
+        .para7 {
+            text-align: center;
+            font-family: proxima-nova, sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 36px;
+        }
+
+        .spn {
+            color: rgb(0, 178, 156);
+
+        }
+
+        .spn:hover {
+            color: black;
+            cursor: pointer;
+        }
+
+        .bigbox5 {
+            height: 95vh;
+            width: 60%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        #inp {
+            height: 7vh;
+            width: 40%;
+            font-family: proxima-nova, sans-serif;
+            font-size: 16px;
+            padding-left: 10px;
+            border-radius: 10px;
+            border: 1px;
+            box-shadow: 5px 5px 5px 5px rgb(162, 253, 233);
+
+
+
+        }
+
+        #area {
+            height: 35vh;
+            width: 100%;
+            font-family: proxima-nova, sans-serif;
+            font-size: 16px;
+            padding-left: 10px;
+            padding-top: 10px;
+            border-radius: 10px;
+            /* border: 1px solid; */
+        }
+
+        .bigbox6 {
+            height: 50vh;
+            width: 17%;
+            left: 85%;
+            top: 820px;
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .img24 {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .picbox10 {
+            height: 18vh;
+            width: 90%;
+            left: 5%;
+            top: 110px;
+            position: absolute;
+            /* border: 1px solid; */
+        }
+
+        .button8 {
+            height: 8vh;
+            width: 25%;
+            background-color: rgb(0, 156, 136);
+            color: white;
+            font-weight: bolder;
+            border-radius: 10px;
+            border: none;
+
+        }
+
+        .button8:hover {
+            background-color: black;
+            color: rgb(0, 156, 136);
+        }
+
+        @media screen and (max-width:1071px) {
+            .parent11 {
+                width: auto;
+            }
+
+            .childbox8 {
+                flex-wrap: wrap;
+            }
+
+            .bigbox3 {
+                width: 50%;
+            }
+
+            .circlebox3 {
+                width: 60%;
+            }
+
+        }
+
+        @media screen and (max-width:856px) {
+            .bigbox5 {
+                width: 100%;
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+
+            .circlebox3 {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width:510px) {
+            .circlebox3 {
+                width: 150%;
+            }
+
+            #inp {
+                width: 100%;
+            }
+
+            .bigbox3 {
+                width: 100%;
+            }
+
+            .bigbox6 {
+                width: max-content;
+            }
+        }
+
+        .parnet12 {
+            height: auto;
+            width: 100%;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            /* border: 1px solid; */
+        }
+
+        .childbox9 {
+            height: 500px;
+            width: 100%;
+            display: flex;
+            position: relative;
+            align-items: center;
+            /* border: 1px solid; */
+
+        }
+
+        .smallbox13 {
+            height: auto;
+            width: 15%;
+            position: absolute;
+            /* border: 1px solid; */
+
+        }
+
+        .img25 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .smallbox14 {
+            height: auto;
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            margin-left: 35%;
+            /* border: 1px solid; */
+
+        }
+
+        .minibox13 {
+            height: 50px;
+            width: 50%;
+            /* border: 1px solid; */
+        }
+
+        .img26 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .minibox14 {
+            height: auto;
+            width: 100%;
+            /* border: 1px solid; */
+        }
+
+        .para8 {
+            text-align: center;
+            font-family: proxima-nova, sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 36px;
+        }
+
+        .minibox15 {
+            height: auto;
+            width: 90%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .iconbox3 {
+            height: 50px;
+            width: 16%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            transition: all 1s;
+            box-shadow: 6px 8px 5px 2px rgb(162, 253, 233);
+            /* border: 1px solid; */
+        }
+
+        .iconbox3:hover {
+            background-color: black;
+            cursor: pointer;
+        }
+
+        .fa {
+            font-size: 24px;
+            color: rgb(0, 200, 175);
+
+        }
+
+        .childbox10 {
+            height: auto;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* border: 1px solid; */
+
+        }
+
+        .lastchildbox {
+            height: 45vh;
+            width: 18%;
+            /* border: 1px solid; */
+        }
+
+        .spn2 {
+            font-family: proxima-nova, sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+
+        }
+
+        .list2 {
+            font-family: proxima-nova, sans-serif;
+            font-size: 14px;
+            display: block;
+            padding-top: 20px;
+        }
+
+        .list2:hover {
+            color: rgb(19, 204, 181);
+            cursor: pointer;
+        }
+
+        .lastbar {
+            height: 10vh;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .lastbox2 {
+            height: 8vh;
+            width: max-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .text10 {
+
+            font-family: proxima-nova, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+
+        @media screen and (max-width:657px) {
+            .childbox9 {
+                /* width: 100%; */
+                position: static;
+                flex-direction: column-reverse;
+                /* flex-wrap: wrap; */
+
+            }
+
+            .smallbox13 {
+                /* width: 100%; */
+                position: static;
+
+            }
+
+            .iconbox3 {
+                width: 100%;
+                width: 50%;
+            }
+
+            .smallbox14 {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .childbox10 {
+                width: 100%;
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+
+            .minibox15 {
+
+                width: 100%;
+            }
+
+            .iconbox3 {
+                width: 100%;
+            }
+
+            .lastchildbox {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainbox">
+        <div class="mainbar">
+            <div class="logobar">
+                <img class="img1" src="logo.svg" alt="">
+            </div>
+            <ul class="content">
+                <li class="list">Solutions
+                    <div class="minibox">
+                        <img class="img2" src="underline@2x.png" alt="">
+                    </div>
+                    <div class="box1">
+                        <div class="smallbox2">
+                            <div class="longbox">
+                                <div class="minibox3">
+                                    <img class="img3" src="menuicon-services.svg" alt="">
+                                </div>
+                                <div class="minibox4">
+                                    <div class="bar">
+                                        <h2 class="text2">Tech-Enabled Services</h2>
+                                    </div>
+                                    <p class="para">Full Service influencer marketing campaigns</p>
+                                </div>
+                            </div>
+                            <div class="longbox">
+                                <div class="minibox3">
+                                    <img class="img3" src="menuicon-software.svg" alt="">
+                                </div>
+                                <div class="minibox4">
+                                    <div class="bar">
+                                        <h2 class="text2">Software</h2>
+                                    </div>
+                                    <p class="para">
+                                        Seamlessly search, manage, and track influencer campaigns.
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="longbox">
+                                <div class="minibox3">
+                                    <img class="img3" src="menuicon-paid.svg" alt="">
+                                </div>
+                                <div class="minibox4">
+                                    <div class="bar">
+                                        <h2 class="text2">Paid Media</h2>
+                                    </div>
+                                    <p class="para">
+                                        Develop and execute influencer driven performance marketing campaigns.
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="smallbox2">
+                            <div class="longbox">
+                                <div class="minibox3">
+                                    <img class="img3" src="menuicon-fraud.svg" alt="">
+                                </div>
+                                <div class="minibox4">
+                                    <div class="bar">
+                                        <h2 class="text2">Fraud Detection</h2>
+                                    </div>
+                                    <p class="para">
+
+                                        Analyze social posts and profiles for fraudulent engagement and followers.
+
+
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="longbox">
+                                <div class="minibox3">
+                                    <img class="img3" src="menuicon-api.svg" alt="">
+                                </div>
+                                <div class="minibox4">
+                                    <div class="bar">
+                                        <h2 class="text2">API</h2>
+                                    </div>
+                                    <p class="para">
+
+                                        Integrate over 400+ custom data points into in-house tools and technologies.
+
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="longbox">
+                                <div class="minibox3">
+                                    <img class="img3" src="menuicon-crypto.svg" alt="">
+                                </div>
+                                <div class="minibox4">
+                                    <div class="bar">
+                                        <h2 class="text2">Crypto and NFT Marketing</h2>
+                                    </div>
+                                    <p class="para">
+
+                                        Promote your Blockchain venture with a highly targeted crypto marketing
+                                        strategy.
+
+
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list">Service
+                    <div class="minibox">
+                        <img class="img2" src="underline@2x.png" alt="">
+                    </div>
+                </li>
+                <li class="list">Case Studies
+                    <div class="minibox">
+                        <img class="img2" src="underline@2x.png" alt="">
+                    </div>
+                </li>
+                <li class="list">Pricing
+                    <div class="minibox">
+                        <img class="img2" src="underline@2x.png" alt="">
+                    </div>
+                </li>
+                <li class="list">Resources
+                    <div class="minibox">
+                        <img class="img2" src="underline@2x.png" alt="">
+                        <div class="box2">
+                            <div class="smallbox3">
+                                <div class="barbox1">
+                                    <div class="minibox5">
+                                        <h2 class="text2">Blog</h2>
+                                    </div>
+                                    <p class="para">Stay updated with the latest influencer marketing trends, tips, and
+                                        topics.</p>
+
+
+                                </div>
+                                <div class="barbox1">
+                                    <div class="minibox5">
+                                        <h2 class="text2">Top Lists</h2>
+                                    </div>
+                                    <p class="para">
+                                        Discover the most definitive list of influencers across a range of categories.
+                                    </p>
+
+
+
+
+                                </div>
+                                <div class="barbox1">
+                                    <div class="minibox5">
+                                        <h2 class="text2">Top Spenders</h2>
+                                    </div>
+                                    <p class="para">See the top brand spenders in influencer marketing this week. </p>
+
+
+
+                                </div>
+
+
+
+                                <div class="barbox1">
+                                    <div class="minibox5">
+                                        <h2 class="text2">Industry Reports</h2>
+                                    </div>
+                                    <p class="para">Explore leading influencer marketing industry reports.</p>
+
+
+
+
+                                </div>
+                            </div>
+                            <div class="smallbox4">
+
+                                <div class="barbox1">
+                                    <div class="minibox5">
+                                        <h2 class="text2">Verified</h2>
+                                    </div>
+                                    <p class="para">A video series for the Creator Economy.</p>
+
+
+
+
+
+
+                                </div>
+                                <div class="barbox1">
+                                    <div class="minibox5">
+                                        <h2 class="text2">Guides</h2>
+                                    </div>
+                                    <p class="para">Digital Media Guides</p>
+
+
+
+
+
+
+                                </div>
+                                <div class="barbox1">
+                                    <div class="minibox5">
+                                        <h2 class="text2">Infographics</h2>
+                                    </div>
+                                    <p class="para">Infographics </p>
+
+
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="smallbox">
+                <div class="minibox2">
+                    <li class="list">Login
+                        <div class="minibox">
+                            <img class="img2" src="underline@2x.png" alt="">
+                        </div>
+                        <div class="box3">
+                            <div class="minibox6">
+
+                                <h2 class="text2">For Creators</h2>
+
+                            </div>
+                            <div class="minibox6">
+
+                                <h2 class="text2">For Brands & Agencies</h2>
+
+                            </div>
+                        </div>
+                    </li>
+                </div>
+                <button class="button1">GET STARTED</button>
+            </div>
+        </div>
+        <div class="mainbar2">
+            <div class="logobar">
+                <img class="img1" src="logo.svg" alt="">
+            </div>
+            <div class="menubox">
+                <i class="fa-solid fa-bars menu"></i>
+            </div>
+        </div>
+        <div class="parent1">
+            <div class="bigbox">
+                <div class="box4">
+                    <h1 class="text3">
+                        Run World Class <br> Influencer Marketing Campaigns.
+                    </h1>
+                </div>
+                <div class="box4">
+                    <p class="para2">NeoReach enables world class original
+                        influencer campaigns for leading brands
+                        and Global Fortune 500s.</p>
+                </div>
+                <button class="button2">LEARN MORE</button>
+            </div>
+            <div class="bigbox2">
+                <div class="smallbox5">
+                    <img class="img4" src="circle-orange@2x.png" alt="">
+                </div>
+                <div class="smallbox6">
+                    <div class="circlebox">
+                        <img class="img5" src="hero-base1@2x.png" alt="">
+                        <div class="box7">
+                            <img class="downupbox" src="talk-bubble@2x.png" alt="">
+                        </div>
+                        <div class="box8">
+                            <img class="downupbox" src="talk-bubble@2x.png" alt="">
+                        </div>
+                        <div class="box9">
+                            <img class="img12" src="bullhorn@2x.png" alt="">
+                            <div class="smallbox7">
+                                <img class="hornline" src="horn-lines.svg" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="boxbar1">
+                        <div class="greenbox">
+                            <div class="slide">
+                                <img class="img7" src="card-boy@2x.png" alt="">
+                                <button class="circlebox2">
+                                    <img class="img8" src="card-check.svg" alt="">
+                                </button>
+
+
+                            </div>
+                            <div class="slide">
+                                <img class="img7" src="card-girl@2x.png" alt="">
+                                <button class="circlebox2">
+                                    <img class="img8" src="card-check.svg" alt="">
+                                </button>
+                            </div>
+                            <div class="slide">
+                                <img class="img7" src="card-boy@2x.png" alt="">
+                                <button class="circlebox2">
+                                    <img class="img8" src="card-check.svg" alt="">
+                                </button>
+                            </div>
+                            <div class="slide">
+                                <img class="img7" src="card-girl@2x.png" alt="">
+                                <button class="circlebox2">
+                                    <img class="img8" src="card-check.svg" alt="">
+                                </button>
+                            </div>
+                            <div class="slide">
+                                <img class="img7" src="card-boy@2x.png" alt="">
+                                <button class="circlebox2">
+                                    <img class="img8" src="card-check.svg" alt="">
+                                </button>
+                            </div>
+                            <div class="slide">
+                                <img class="img7" src="card-girl@2x.png" alt="">
+                                <button class="circlebox2">
+                                    <img class="img8" src="card-check.svg" alt="">
+                                </button>
+                            </div>
+                            <div class="slide">
+                                <img class="img7" src="card-boy@2x.png" alt="">
+                                <button class="circlebox2">
+                                    <img class="img8" src="card-check.svg" alt="">
+                                </button>
+                            </div>
+                            <div class="slide">
+                                <img class="img7" src="card-girl@2x.png" alt="">
+                                <button class="circlebox2">
+                                    <img class="img8" src="card-check.svg" alt="">
+                                </button>
+                            </div>
+                            <div class="slide">
+                                <img class="img7" src="card-boy@2x.png" alt="">
+                                <button class="circlebox2">
+                                    <img class="img8" src="card-check.svg" alt="">
+                                </button>
+                            </div>
+                            <div class="slide">
+                                <img class="img7" src="card-girl@2x.png" alt="">
+                                <button class="circlebox2">
+                                    <img class="img8" src="card-check.svg" alt="">
+                                </button>
+                            </div>
+                            <div class="slide">
+                                <img class="img7" src="card-boy@2x.png" alt="">
+                                <button class="circlebox2">
+                                    <img class="img8" src="card-check.svg" alt="">
+                                </button>
+                            </div>
+                            <div class="slide">
+                                <img class="img7" src="card-girl@2x.png" alt="">
+                                <button class="circlebox2">
+                                    <img class="img8" src="card-check.svg" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="circlebox">
+                        <img class="img5" src="hero-base2@2x.png" alt="">
+                        <div class="radial-dot">
+                            <div class="smallcircle"></div>
+                            <div class="smallcircle2"></div>
+                            <div class="smallcircle3"></div>
+                            <div class="smallcircle4"></div>
+                            <div class="smallcircle5"></div>
+                            <div class="smallcircle6"></div>
+                            <div class="smallcircle7"></div>
+                            <div class="smallcircle8"></div>
+                            <div class="smallcircle9"></div>
+                            <div class="smallcircle10"></div>
+                        </div>
+                        <div class="box5">
+                            <div class="bsline"></div>
+                            <div class="search">
+                                <img class="img10" src="search-bar@2x.png" alt="">
+                            </div>
+                            <div class="box6">
+                                <div class="slide2">
+
+                                    <img class="img11" src="search-dots.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="radiusbox">
+                            <div class="bitesbox">
+                                <div class="bites">
+                                    <img class="img9" src="graph-wave@2x.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="minibox7">
+                            <img class="img6" src="circle-blue@2x.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="parent2">
+        <div class="childbox">
+            <div class="slidebox1">
+                <div class="slide5">
+                    <img class="img13"
+                        src="https://neoreach.wpenginepowered.com/wp-content/uploads/2019/04/logo-airbnb@2x.png" alt="">
+                </div>
+                <div class="slide5">
+                    <img class="img13"
+                        src="https://neoreach.wpenginepowered.com/wp-content/uploads/2019/04/logo-amazon@2x.png" alt="">
+                </div>
+                <div class="slide5">
+                    <img class="img13"
+                        src="https://neoreach.wpenginepowered.com/wp-content/uploads/2019/04/logo-nyt@2x.png" alt="">
+                </div>
+                <div class="slide5">
+                    <img class="img13"
+                        src="https://neoreach.wpenginepowered.com/wp-content/uploads/2019/04/logo-honda@2x.png" alt="">
+                </div>
+                <div class="slide5">
+                    <img class="img13"
+                        src="https://neoreach.wpenginepowered.com/wp-content/uploads/2019/04/logo-walmart@2x.png" alt=""
+                        srcset="">
+                </div>
+                <div class="slide5">
+                    <img class="img13"
+                        src="https://neoreach.wpenginepowered.com/wp-content/uploads/2019/04/logo-bet@2x.png" alt=""
+                        srcset="">
+                </div>
+                <div class="slide5">
+                    <img class="img13"
+                        src="https://neoreach.wpenginepowered.com/wp-content/uploads/2019/04/logo-airbnb@2x.png" alt="">
+                </div>
+                <div class="slide5">
+                    <img class="img13"
+                        src="https://neoreach.wpenginepowered.com/wp-content/uploads/2019/04/logo-amazon@2x.png" alt="">
+                </div>
+                <div class="slide5">
+                    <img class="img13"
+                        src="https://neoreach.wpenginepowered.com/wp-content/uploads/2019/04/logo-nyt@2x.png" alt="">
+                </div>
+                <div class="slide5">
+                    <img class="img13"
+                        src="https://neoreach.wpenginepowered.com/wp-content/uploads/2019/04/logo-honda@2x.png" alt="">
+                </div>
+                <div class="slide5">
+                    <img class="img13"
+                        src="https://neoreach.wpenginepowered.com/wp-content/uploads/2019/04/logo-walmart@2x.png" alt=""
+                        srcset="">
+                </div>
+                <div class="slide5">
+                    <img class="img13"
+                        src="https://neoreach.wpenginepowered.com/wp-content/uploads/2019/04/logo-bet@2x.png" alt=""
+                        srcset="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="parent3">
+        <div class="childbox2">
+            <h1 class="text4">Leading Global Influencer Platform</h1>
+        </div>
+        <div class="childbox3">
+            <p class="para3">
+                Our team integrates with yours to ensure proactive, real-time communication, while creating authentic,
+                data-driven campaigns that get to the heart and soul of your brand story.
+            </p>
+        </div>
+        <button class="button3">LERAN MORE</button>
+    </div>
+    <div class="parent4">
+        <div class="childbox4">
+            <div class="smallbox8">
+                <h4 class="text5">ACCESS</h4>
+            </div>
+            <div class="smallbox9">
+                <h1 class="text6">Connected Network
+                    Of Influencers</h1>
+            </div>
+            <div class="smallbox10">
+                <p class="para4">Years of executing campaigns have helped us shape strong direct relationships with
+                    influencers, bloggers, and other creators. Coupled with our data-backed insights into key
+                    demographics and KPI’s, we not only ensure the perfect fit - but the perfect relationship.</p>
+            </div>
+            <button class="button4">LERAN MORE</button>
+        </div>
+        <div class="childbox5">
+            <div class="picbox" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <img class="img15" src="package-photo3@2x.png" alt="">
+            </div>
+            <div class="picbox2" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+                <img class="img15" src="work1-photo2@2x.png" alt="">
+            </div>
+            <img class="img14" src="work-illus1@2x.png" alt="" srcset="">
+        </div>
+        <div class="parent5">
+            <div class="childbox4">
+                <div class="smallbox8">
+                    <h4 class="text5">ACCESS</h4>
+                </div>
+                <div class="smallbox9">
+                    <h1 class="text6">Connected Network
+                        Of Influencers</h1>
+                </div>
+                <div class="smallbox10">
+                    <p class="para4">Years of executing campaigns have helped us shape strong direct relationships with
+                        influencers, bloggers, and other creators. Coupled with our data-backed insights into key
+                        demographics and KPI’s, we not only ensure the perfect fit - but the perfect relationship.</p>
+                </div>
+                <button class="button4">LERAN MORE</button>
+            </div>
+            <div class="childbox5">
+                <div class="picboxs" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <img class="img15" src="package-photo2@2x.png" alt="">
+                </div>
+
+                <img class="img14" src="work-illus2@2x.png" alt="" srcset="">
+            </div>
+        </div>
+        <div class="parent6">
+            <div class="childbox4">
+                <div class="smallbox8">
+                    <h4 class="text5">ACCESS</h4>
+                </div>
+                <div class="smallbox9">
+                    <h1 class="text6">Connected Network
+                        Of Influencers</h1>
+                </div>
+                <div class="smallbox10">
+                    <p class="para4">Years of executing campaigns have helped us shape strong direct relationships with
+                        influencers, bloggers, and other creators. Coupled with our data-backed insights into key
+                        demographics and KPI’s, we not only ensure the perfect fit - but the perfect relationship.</p>
+                </div>
+                <button class="button4">LERAN MORE</button>
+            </div>
+            <div class="childbox5">
+                <div class="picboxs" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <img class="img15" src="package-photo2@2x.png" alt="">
+                </div>
+
+                <img class="img14" src="work-illus3@2x.png" alt="" srcset="">
+            </div>
+        </div>
+        <div class="parent7">
+            <div class="childbox4">
+                <div class="smallbox8">
+                    <h4 class="text5">ACCESS</h4>
+                </div>
+                <div class="smallbox9">
+                    <h1 class="text6">Connected Network
+                        Of Influencers</h1>
+                </div>
+                <div class="smallbox10">
+                    <p class="para4">Years of executing campaigns have helped us shape strong direct relationships with
+                        influencers, bloggers, and other creators. Coupled with our data-backed insights into key
+                        demographics and KPI’s, we not only ensure the perfect fit - but the perfect relationship.</p>
+                </div>
+                <button class="button4">LERAN MORE</button>
+            </div>
+            <div class="childbox5">
+                <div class="picbox2" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <img class="img15" src="work4-photo1@2x.png" alt="">
+                </div>
+
+                <img class="img14" src="work-illus4@2x.png" alt="" srcset="">
+            </div>
+        </div>
+        <div class="parent8">
+            <div class="childbox4">
+                <div class="smallbox8">
+                    <h4 class="text5">INTEGRATE</h4>
+                </div>
+                <div class="smallbox9">
+                    <h1 class="text6">Self-Service
+                        Software & APIs
+                    </h1>
+                </div>
+                <div class="smallbox10">
+                    <p class="para4">Years of executing campaigns have helped us shape strong direct relationships with
+                        influencers, bloggers, and other creators. Coupled with our data-backed insights into key
+                        demographics and KPI’s, we not only ensure the perfect fit - but the perfect relationship.</p>
+                </div>
+                <button class="button4">LERAN MORE</button>
+            </div>
+            <div class="childbox5">
+
+                <img class="img14" src="pricing-brands-bot@2x.png" alt="" srcset="">
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="parent9">
+        <div class="childbox2">
+            <h1 class="text4">Everything your team needs in one package.</h1>
+        </div>
+        <div class="childbox3">
+            <p class="para3">
+                Whether you are looking for a YouTube superstar or an Instagram micro-influencer, you’re in good
+                company. Sign up today and see why NeoReach has managed over $250 million worth of influencer marketing
+                campaigns to date.
+            </p>
+        </div>
+        <button class="button5">GET STARTED TODAY!</button>
+        <div class="childbox6">
+            <div class="smallbox11" data-aos="fade-up" data-aos-delay="300">
+                <img class="img17" src="circle-mixed@2x.png" alt="">
+            </div>
+            <div class="smallbox12" data-aos="fade-up" data-aos-delay="280">
+                <img class="img16" src="package-bgdots.svg" alt="">
+                <div class="boxes" data-aos-delay="300">
+                    <img class="img19" src="package-photo1@2x.png" alt="">
+                </div>
+                <div class="boxes2" data-aos="fade-up" data-aos-delay="280">
+                    <img class="img19"
+                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/home/parts/package-horn1@2x.png"
+                        alt="">
+                </div>
+                <div class="boxes3" data-aos="fade-up" data-aos-delay="280">
+                    <div class="picbox3">
+                        <img class="img19" src="package-sm-photo1@2x.png" alt="">
+                    </div>
+                    <img class="img19"
+                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/home/parts/package-boxes@2x.png"
+                        alt="">
+                </div>
+                <div class="boxes4" data-aos="fade-up" data-aos-delay="240">
+                    <img class="img19" src="package-photo2@2x.png" alt="">
+                </div>
+                <div class="boxes5" data-aos="fade-up" data-aos-delay="220">
+                    <div class="picbox4">
+                        <img class="img20"
+                            src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/home/parts/package-horn2@2x.png"
+                            alt="">
+                    </div>
+                    <div class="picbox5">
+                        <img class="img19"
+                            src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/home/parts/package-sm-photo2@2x.png"
+                            alt="">
+                    </div>
+                    <div class="picbox6">
+                        <img class="img19" src="package-sm-photo3@2x.png" alt="">
+                    </div>
+                    <div class="picbox7">
+                        <img class="img19" src="package-paper@2x.png" alt="">
+                    </div>
+                    <div class="picbox8">
+                        <img class="img19" src="package-photo3@2x.png" alt="">
+                    </div>
+
+                </div>
+                <div class="picbox9" data-aos="fade-up" data-aos-delay="280">
+                    <img class="img19" src="circle-orange@2x.png" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="parent10">
+        <div class="childbox7">
+            <div class="box13">
+                <div class="smallbxes6">
+                    <h1 class="text9">See what our clients are saying.</h1>
+                </div>
+                <div class="smallbxes7">
+                    <p class="para6">See how top brands are successfully using NeoReach to activate, manage, and track
+                        influencer marketing campaigns at scale.</p>
+                </div>
+            </div>
+            <button class="button7">SEE ALL CASE STUDIES</button>
+        </div>
+        <div class="smallboxes4">
+            <div class="slidebox7">
+                <div class="slide6">
+                    <div class="box10">
+                        <img class="img21"
+                            src="https://neoreach.wpenginepowered.com/wp-content/uploads/2023/01/sams-club-logo-black-and-white.png"
+                            alt="">
+                    </div>
+                    <div class="box11">
+                        <p class="para5">How NeoReach helped promote brand awareness and capitalize on Sam's Club's
+                            limited time offer.</p>
+                    </div>
+                    <div class="box12">
+                        <div class="smallboxes5">
+                            <div class="minibox8">
+                                <div class="iconbox">
+                                    <img class="img22"
+                                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/case-studies/cs-icon-graph.svg"
+                                        alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <h1 class="text7">2.5M</h1>
+                                </div>
+                            </div>
+                            <div class="minibox9">
+                                <h1 class="text8">Total Impressions</h1>
+                            </div>
+                        </div>
+                        <div class="smallboxes5">
+                            <div class="minibox8">
+                                <div class="iconbox">
+                                    <img class="img22"
+                                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/case-studies/cs-icon-talk.svg"
+                                        alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <h1 class="text7">15.1K</h1>
+                                </div>
+                            </div>
+                            <div class="minibox9">
+                                <h1 class="text8">Total Impressions</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button class="button6">LEAREN MORE</button>
+                </div>
+                <div class="slide6">
+                    <div class="box10">
+                        <img class="img21"
+                            src="https://neoreach.wpenginepowered.com/wp-content/uploads/2023/01/sams-club-logo-black-and-white.png"
+                            alt="">
+                    </div>
+                    <div class="box11">
+                        <p class="para5">How NeoReach helped promote brand awareness and capitalize on Sam's Club's
+                            limited time offer.</p>
+                    </div>
+                    <div class="box12">
+                        <div class="smallboxes5">
+                            <div class="minibox8">
+                                <div class="iconbox">
+                                    <img class="img22"
+                                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/case-studies/cs-icon-graph.svg"
+                                        alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <h1 class="text7">2.5M</h1>
+                                </div>
+                            </div>
+                            <div class="minibox9">
+                                <h1 class="text8">Total Impressions</h1>
+                            </div>
+                        </div>
+                        <div class="smallboxes5">
+                            <div class="minibox8">
+                                <div class="iconbox">
+                                    <img class="img22"
+                                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/case-studies/cs-icon-talk.svg"
+                                        alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <h1 class="text7">15.1K</h1>
+                                </div>
+                            </div>
+                            <div class="minibox9">
+                                <h1 class="text8">Total Impressions</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button class="button6">LEAREN MORE</button>
+                </div>
+                <div class="slide6">
+                    <div class="box10">
+                        <img class="img21"
+                            src="https://neoreach.wpenginepowered.com/wp-content/uploads/2023/01/sams-club-logo-black-and-white.png"
+                            alt="">
+                    </div>
+                    <div class="box11">
+                        <p class="para5">How NeoReach helped promote brand awareness and capitalize on Sam's Club's
+                            limited time offer.</p>
+                    </div>
+                    <div class="box12">
+                        <div class="smallboxes5">
+                            <div class="minibox8">
+                                <div class="iconbox">
+                                    <img class="img22"
+                                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/case-studies/cs-icon-graph.svg"
+                                        alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <h1 class="text7">2.5M</h1>
+                                </div>
+                            </div>
+                            <div class="minibox9">
+                                <h1 class="text8">Total Impressions</h1>
+                            </div>
+                        </div>
+                        <div class="smallboxes5">
+                            <div class="minibox8">
+                                <div class="iconbox">
+                                    <img class="img22"
+                                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/case-studies/cs-icon-talk.svg"
+                                        alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <h1 class="text7">15.1K</h1>
+                                </div>
+                            </div>
+                            <div class="minibox9">
+                                <h1 class="text8">Total Impressions</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button class="button6">LEAREN MORE</button>
+                </div>
+                <div class="slide6">
+                    <div class="box10">
+                        <img class="img21"
+                            src="https://neoreach.wpenginepowered.com/wp-content/uploads/2023/01/sams-club-logo-black-and-white.png"
+                            alt="">
+                    </div>
+                    <div class="box11">
+                        <p class="para5">How NeoReach helped promote brand awareness and capitalize on Sam's Club's
+                            limited time offer.</p>
+                    </div>
+                    <div class="box12">
+                        <div class="smallboxes5">
+                            <div class="minibox8">
+                                <div class="iconbox">
+                                    <img class="img22"
+                                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/case-studies/cs-icon-graph.svg"
+                                        alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <h1 class="text7">2.5M</h1>
+                                </div>
+                            </div>
+                            <div class="minibox9">
+                                <h1 class="text8">Total Impressions</h1>
+                            </div>
+                        </div>
+                        <div class="smallboxes5">
+                            <div class="minibox8">
+                                <div class="iconbox">
+                                    <img class="img22"
+                                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/case-studies/cs-icon-talk.svg"
+                                        alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <h1 class="text7">15.1K</h1>
+                                </div>
+                            </div>
+                            <div class="minibox9">
+                                <h1 class="text8">Total Impressions</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button class="button6">LEAREN MORE</button>
+                </div>
+                <div class="slide6">
+                    <div class="box10">
+                        <img class="img21"
+                            src="https://neoreach.wpenginepowered.com/wp-content/uploads/2023/01/sams-club-logo-black-and-white.png"
+                            alt="">
+                    </div>
+                    <div class="box11">
+                        <p class="para5">How NeoReach helped promote brand awareness and capitalize on Sam's Club's
+                            limited time offer.</p>
+                    </div>
+                    <div class="box12">
+                        <div class="smallboxes5">
+                            <div class="minibox8">
+                                <div class="iconbox">
+                                    <img class="img22"
+                                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/case-studies/cs-icon-graph.svg"
+                                        alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <h1 class="text7">2.5M</h1>
+                                </div>
+                            </div>
+                            <div class="minibox9">
+                                <h1 class="text8">Total Impressions</h1>
+                            </div>
+                        </div>
+                        <div class="smallboxes5">
+                            <div class="minibox8">
+                                <div class="iconbox">
+                                    <img class="img22"
+                                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/case-studies/cs-icon-talk.svg"
+                                        alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <h1 class="text7">15.1K</h1>
+                                </div>
+                            </div>
+                            <div class="minibox9">
+                                <h1 class="text8">Total Impressions</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button class="button6">LEAREN MORE</button>
+                </div>
+                <div class="slide6">
+                    <div class="box10">
+                        <img class="img21"
+                            src="https://neoreach.wpenginepowered.com/wp-content/uploads/2023/01/sams-club-logo-black-and-white.png"
+                            alt="">
+                    </div>
+                    <div class="box11">
+                        <p class="para5">How NeoReach helped promote brand awareness and capitalize on Sam's Club's
+                            limited time offer.</p>
+                    </div>
+                    <div class="box12">
+                        <div class="smallboxes5">
+                            <div class="minibox8">
+                                <div class="iconbox">
+                                    <img class="img22"
+                                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/case-studies/cs-icon-graph.svg"
+                                        alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <h1 class="text7">2.5M</h1>
+                                </div>
+                            </div>
+                            <div class="minibox9">
+                                <h1 class="text8">Total Impressions</h1>
+                            </div>
+                        </div>
+                        <div class="smallboxes5">
+                            <div class="minibox8">
+                                <div class="iconbox">
+                                    <img class="img22"
+                                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/case-studies/cs-icon-talk.svg"
+                                        alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <h1 class="text7">15.1K</h1>
+                                </div>
+                            </div>
+                            <div class="minibox9">
+                                <h1 class="text8">Total Impressions</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button class="button6">LEAREN MORE</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="parent11">
+        <div class="childbox8">
+            <div class="bigbox3">
+                <div class="circlebox3">
+                    <div class="minibox10">
+                        <img class="img23" src="talkbubble-blank@2x.png" alt="">
+                    </div>
+                    <div class="minibox11">
+                        <img class="img23" src="talkbubble-guy@2x.png" alt="">
+                    </div>
+                    <div class="minibox12">
+                        <img class="img23" src="talkbubble-girl@2x.png" alt="">
+                    </div>
+                    <img class="img5" src="hero-base2@2x.png" alt="">
+                    <div class="radial-dot">
+                        <div class="smallcircle"></div>
+                        <div class="smallcircle2"></div>
+                        <div class="smallcircle3"></div>
+                        <div class="smallcircle4"></div>
+                        <div class="smallcircle5"></div>
+                        <div class="smallcircle6"></div>
+                        <div class="smallcircle7"></div>
+                        <div class="smallcircle8"></div>
+                        <div class="smallcircle9"></div>
+                        <div class="smallcircle10"></div>
+                    </div>
+                    <div class="box5">
+                        <div class="bsline"></div>
+                        <div class="search">
+                            <img class="img10" src="search-bar@2x.png" alt="">
+                        </div>
+                        <div class="box6">
+                            <div class="slide2">
+
+                                <img class="img11" src="search-dots.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="radiusbox">
+                        <div class="bitesbox">
+                            <div class="bites">
+                                <img class="img9" src="graph-wave@2x.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="minibox7">
+                        <img class="img6" src="circle-blue@2x.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="bigbox4">
+                <div class="textbox">
+                    <h1 class="text9">Start a campaign with us!</h1>
+                </div>
+                <div class="textbox2">
+                    <p class="para7">Submit the form below, tell us a bit more about
+                        your business, and we’ll be in touch shortly.
+                        Are you an Influencer? Sign up <span class="spn">here</span> </p>
+                </div>
+
+            </div>
+            <div class="bigbox5">
+                <input placeholder="*First" name="" id="inp">
+                <input placeholder="*Last Name" name="" id="inp">
+                <input placeholder="*Business" name="" id="inp">
+                <input placeholder="*Contact Phone number" name="" id="inp">
+                <input placeholder="*Company Name" name="" id="inp">
+                <input placeholder="*Company Website" name="" id="inp">
+                <input placeholder="*Budget" name="" id="inp">
+                <input placeholder="*Company Size" name="" id="inp">
+                <textarea placeholder="Describe what you're looking to achieve-be as descriptive as possible" id="area"
+                    cols="30" rows="10"></textarea>
+            </div>
+            <button class="button8">LET'S CHAT!</button>
+
+            <!-- <div class="bigbox6">
+                <img class="img24" src="footer-photobg@2x.png" alt="">
+                <div class="picbox10">
+                    <img class="img24" src="footer-photo1@2x.jpg" alt="">
+                </div>
+
+            </div> -->
+        </div>
+    </div>
+    <div class="parnet12">
+        <div class="childbox9">
+            <div class="smallbox13">
+                <img class="img25"
+                    src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/footer-seal@2x.png"
+                    alt="">
+            </div>
+            <div class="smallbox14">
+                <div class="minibox13">
+                    <img class="img26"
+                        src="https://neoreach.wpenginepowered.com/wp-content/themes/neoreach-2022/images/logo.svg"
+                        alt="">
+                </div>
+                <div class="minibox14">
+                    <p class="para8">Seamlessly search, manage, and track
+                        user-generated content campaigns.</p>
+                </div>
+                <div class="minibox15">
+                    <div class="iconbox3">
+                        <i class="fa-brands fa-facebook-f fa"></i>
+                    </div>
+                    <div class="iconbox3">
+                        <i class="fa-brands fa-twitter  fa"></i>
+                    </div>
+                    <div class="iconbox3">
+                        <i class="fa-brands fa-instagram  fa"></i>
+                    </div>
+                    <div class="iconbox3">
+                        <i class="fa-brands fa-linkedin  fa"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="childbox10">
+            <div class="lastchildbox">
+                <span class="spn2">Advertisers</span>
+                <li class="list2">Pricing</li>
+                <li class="list2">Case Studies</li>
+                <li class="list2">Advertiser FAQ
+                </li>
+            </div>
+            <div class="lastchildbox">
+                <span class="spn2">Influencers</span>
+                <li class="list2">Community</li>
+                <li class="list2">Influencer FAQ</li>
+                <li class="list2">Influencer Guidelines
+                </li>
+                <li class="list2">Influencer Sign Up</li>
+
+            </div>
+            <div class="lastchildbox">
+                <span class="spn2">Solutions</span>
+                <li class="list2">Solutions</li>
+                <li class="list2">Software</li>
+                <li class="list2">API
+                </li>
+
+            </div>
+            <div class="lastchildbox">
+                <span class="spn2">Resources</span>
+                <li class="list2">Meet The Team</li>
+                <li class="list2">The Org</li>
+                <li class="list2">Press</li>
+                <li class="list2">Privacy</li>
+                <li class="list2">Customer Support</li>
+
+
+            </div>
+            <div class="lastchildbox">
+                <span class="spn2">Contact</span>
+                <li class="list2">Email: team@neoreach.com</li>
+                <li class="list2">Careers</li>
+                <li class="list2">Call: 1-877-NEOREACH
+                </li>
+            </div>
+        </div>
+        <div class="lastbar">
+            <div class="lastbox2">
+                <h2 class="text10">© 2023. All Rights Reserved.</h2>
+            </div>
+            <div class="lastbox2">
+                <h2 class="text10">Design: Griflan</h2>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
